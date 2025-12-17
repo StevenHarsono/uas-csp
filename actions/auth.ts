@@ -25,12 +25,12 @@ export async function register(formData: FormData) {
   redirect("/login");
 }
 
-export async function login(formData: FormData) {
+export async function login(prevState: any, formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
   if (!email || !password) {
-    throw new Error("Email and password are required");
+    return { error: "Email and password are required" };
   }
 
   const supabase = await createSupabaseServerClient();
@@ -41,7 +41,7 @@ export async function login(formData: FormData) {
   });
 
   if (error) {
-    throw new Error(error.message);
+    return { error: error.message };
   }
 
   redirect("/home");
@@ -50,7 +50,6 @@ export async function login(formData: FormData) {
 export async function saveProfile(formData: FormData) {
   const supabase = await createSupabaseServerClient();
 
-  // ambil user
   const {
     data: { user },
   } = await supabase.auth.getUser();
