@@ -63,15 +63,6 @@ export default async function HomePage() {
 
           {/* ACTION BUTTONS */}
           <div className="pt-4 space-y-2">
-            <form action="/profile">
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-black py-2 text-sm font-medium text-white hover:bg-gray-800 transition"
-              >
-                Edit Profile
-              </button>
-            </form>
-
             <form action={logout}>
               <button
                 type="submit"
