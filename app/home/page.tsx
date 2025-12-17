@@ -19,9 +19,9 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 flex items-start justify-center p-8">
-      <div className="w-full max-w-2xl space-y-6">
+      <div className="w-full max-w-6xl flex gap-6">
         {/* USER PROFILE CARD */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="w-1/3 bg-white rounded-xl shadow-md overflow-hidden">
         {/* PHOTO */}
         <img
           src={user.user_metadata?.avatar_url ?? "/default-profile.jpg"}
@@ -85,7 +85,7 @@ export default async function HomePage() {
         </div>
 
         {/* ANNOUNCEMENTS SECTION */}
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="w-2/3 bg-white rounded-xl shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Announcements</h2>
           
           {announcements && announcements.length > 0 ? (
